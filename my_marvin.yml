@@ -14,14 +14,18 @@ jenkins:
           - name: "ape"
             description: "Pedagogical team member"
             permissions:
+              - "Overall/Read"
               - "Job/Build"
+              - "Job/Read"
               - "Job/Workspace"
             entries:
               - user: "i_dont_know"
           - name: "gorilla"
             description: "Group Obsessively Researching Innovation Linked to Learning and Accomplishment"
             permissions:
+              - "Overall/Read"
               - "Job/Build"
+              - "Job/Read"
               - "Job/Workspace"
               - "Job/Create"
               - "Job/Configure"
@@ -33,6 +37,7 @@ jenkins:
           - name: "assist"
             description: ”Assistant"
             permissions:
+              - "Overall/Read"
               - "Job/Read"
               - "Job/Workspace"
             entries:
