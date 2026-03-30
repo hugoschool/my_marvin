@@ -1,5 +1,6 @@
 jenkins:
   systemMessage: "Welcome to the Chocolatine-Powered Marvin Jenkins Instance."
+
   authorizationStrategy:
     roleBased:
       roles:
@@ -36,6 +37,7 @@ jenkins:
               - "Job/Workspace"
             entries:
               - user: "nasso"
+
   securityRealm:
     local:
       allowsSignup: false
@@ -52,6 +54,12 @@ jenkins:
         - id: "nasso"
           name: "Nassim"
           password: ${USER_NASSO_PASSWORD}
+
 jobs:
   # Only modify this variable locally
   - file: job_dsl.groovy
+
+security:
+  scriptApproval:
+    approvedScriptHashes:
+      - "SHA512:5d6f2f9f490e529b9467f961e1acba5c0e2d149c81efb1564888fe3a8f7cfe3d82aebeb95ccba9dc5747c1428fa9a9a249caa9b0f8698bd94a5f5fac4909f1a1"
