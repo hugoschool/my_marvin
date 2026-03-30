@@ -1,0 +1,18 @@
+services:
+  jenkins:
+    build:
+      context: .
+
+    environment:
+      - CASC_JENKINS_CONFIG=/var/jenkins_home/my_marvin.yml
+      - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
+
+    env_file: ".env"
+
+    ports:
+      - 127.0.0.1:8080:8080
+      - 127.0.0.1:50000:50000
+
+    volumes:
+      - ./my_marvin.yml:/var/jenkins_home/my_marvin.yml:ro
+      - ./job_dsl.groovy:/var/jenkins_home/job_dsl.groovy:ro
