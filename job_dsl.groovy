@@ -17,3 +17,35 @@ job('tools/clone-repository') {
         shell('git clone $GIT_REPOSITORY_URL')
     }
 }
+
+job('tools/seed') {
+    displayName('SEED')
+    parameters {
+        stringParam('GITHUB_NAME', '', 'GitHub repository owner/repo_name (e.g.: "EpitechIT31000/chocolatine")')
+        stringParam('DISPLAY_NAME', '', 'Display name for the job')
+    }
+    steps {
+        dsl('''
+            job("$DISPLAY_NAME") {
+                wrappers {
+                    preBuildCleanup {
+                        deleteDirectories()
+                        cleanupParameter('CLEANUP')
+                    }
+                }
+                scm {
+                    github("$GITHUB_NAME")
+                }
+                triggers {
+                    scm('* * * * *')
+                }
+                steps {
+                    shell('make fclean')
+                    shell('make')
+                    shell('make tests_run')
+                    shell('make clean')
+                }
+            }
+        ''')
+    }
+}

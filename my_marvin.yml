@@ -52,6 +52,6 @@ jenkins:
         - id: "nasso"
           name: "Nassim"
           password: ${USER_NASSO_PASSWORD}
-# jobs:
+jobs:
   # Only modify this variable locally
-  # - file: job_dsl.groovy
+  - file: job_dsl.groovy
