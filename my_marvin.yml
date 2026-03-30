@@ -36,17 +36,6 @@ jenkins:
               - "Job/Workspace"
             entries:
               - user: "nasso"
-        items:
-          - name: "Tools"
-            description: "Folder for miscellaneous tools."
-            pattern: "A/.*"
-            permissions:
-              - "Job/Configure"
-              - "Job/Build"
-              - "Job/Delete"
-            entries:
-              - user: "user1"
-              - user: "user2"
   securityRealm:
     local:
       allowsSignup: false
