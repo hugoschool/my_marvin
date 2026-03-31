@@ -35,7 +35,7 @@ jenkins:
             entries:
               - user: "vaugie_g"
           - name: "assist"
-            description: ”Assistant"
+            description: "Assistant"
             permissions:
               - "Overall/Read"
               - "Job/Read"
