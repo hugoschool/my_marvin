@@ -1,9 +1,9 @@
-folder('tools') {
+folder('Tools') {
     displayName('Tools')
     description('Folder for miscellaneous tools.')
 }
 
-job('tools/clone-repository') {
+job('Tools/clone-repository') {
     wrappers {
         preBuildCleanup {
             deleteDirectories()
@@ -18,7 +18,7 @@ job('tools/clone-repository') {
     }
 }
 
-job('tools/seed') {
+job('Tools/seed') {
     displayName('SEED')
     parameters {
         stringParam('GITHUB_NAME', '', 'GitHub repository owner/repo_name (e.g.: "EpitechIT31000/chocolatine")')
