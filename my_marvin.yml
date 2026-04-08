@@ -6,7 +6,7 @@ jenkins:
       roles:
         global:
           - name: "admin"
-            description: "Marvin Master"
+            description: "Marvin master"
             permissions:
               - "Overall/Administer"
             entries:
