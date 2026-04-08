@@ -18,7 +18,7 @@ job('Tools/clone-repository') {
     }
 }
 
-job('Tools/seed') {
+job('Tools/SEED') {
     displayName('SEED')
     parameters {
         stringParam('GITHUB_NAME', '', 'GitHub repository owner/repo_name (e.g.: "EpitechIT31000/chocolatine")')
