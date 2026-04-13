@@ -1,0 +1,70 @@
+jenkins:
+  systemMessage: "Welcome to the Chocolatine-Powered Marvin Jenkins Instance."
+
+  authorizationStrategy:
+    roleBased:
+      roles:
+        global:
+          - name: "admin"
+            description: "Marvin master"
+            permissions:
+              - "Overall/Administer"
+            entries:
+              - user: "chocolateen"
+          - name: "ape"
+            description: "Pedagogical team member"
+            permissions:
+              - "Overall/Read"
+              - "Job/Build"
+              - "Job/Read"
+              - "Job/Workspace"
+            entries:
+              - user: "i_dont_know"
+          - name: "gorilla"
+            description: "Group Obsessively Researching Innovation Linked to Learning and Accomplishment"
+            permissions:
+              - "Overall/Read"
+              - "Job/Build"
+              - "Job/Read"
+              - "Job/Workspace"
+              - "Job/Create"
+              - "Job/Configure"
+              - "Job/Delete"
+              - "Job/Move"
+              - "Job/Cancel"
+            entries:
+              - user: "vaugie_g"
+          - name: "assist"
+            description: "Assistant"
+            permissions:
+              - "Overall/Read"
+              - "Job/Read"
+              - "Job/Workspace"
+            entries:
+              - user: "nasso"
+
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: "chocolateen"
+          name: "Hugo"
+          password: ${USER_CHOCOLATEEN_PASSWORD}
+        - id: "vaugie_g"
+          name: "Garance"
+          password: ${USER_VAUGIE_G_PASSWORD}
+        - id: "i_dont_know"
+          name: "Jeremy"
+          password: ${USER_I_DONT_KNOW_PASSWORD}
+        - id: "nasso"
+          name: "Nassim"
+          password: ${USER_NASSO_PASSWORD}
+
+jobs:
+  # Only modify this variable locally
+  - file: /var/jenkins_home/job_dsl.groovy
+
+security:
+  scriptApproval:
+    approvedScriptHashes:
+      - "SHA512:6fc48c35d2863b2c0700bb41666717e858d2b9ab85a00372a878ebadaef2d57d75dde10d38ed98100992cfc1e8ce0485bb03243bdd6ae726852549eae9cd9bfc"
