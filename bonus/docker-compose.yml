@@ -15,4 +15,4 @@ services:
 
     volumes:
       - ./my_marvin.yml:/var/jenkins_home/my_marvin.yml:ro
-      - ./bonus/bonus.groovy:/var/jenkins_home/job_dsl.groovy:ro
+      - ./bonus.groovy:/var/jenkins_home/job_dsl.groovy:ro
