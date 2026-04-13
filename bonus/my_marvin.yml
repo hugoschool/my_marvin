@@ -64,6 +64,10 @@ jobs:
   # Only modify this variable locally
   - file: /var/jenkins_home/job_dsl.groovy
 
+appearance:
+  themeManager:
+    theme: "solarizedDark"
+
 security:
   scriptApproval:
     approvedScriptHashes:
