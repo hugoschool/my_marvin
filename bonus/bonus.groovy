@@ -23,6 +23,8 @@ job('Tools/SEED') {
     parameters {
         stringParam('GITHUB_NAME', '', 'GitHub repository owner/repo_name (e.g.: "EpitechIT31000/chocolatine")')
         stringParam('DISPLAY_NAME', '', 'Display name for the job')
+        stringParam('MIRROR_URL', '', 'Git SSH URL to mirror to')
+        stringParam('PRIVATE_SSH_KEY', '', 'Base64 encoded SSH key used for mirroring')
     }
     steps {
         dsl('''
@@ -45,6 +47,7 @@ job('Tools/SEED') {
                     shell('make')
                     shell('make tests_run')
                     shell('make clean')
+                    shell("/usr/share/mirror.sh \\\"$PRIVATE_SSH_KEY\\\" \\\"$MIRROR_URL\\\"")
                 }
             }
         ''')

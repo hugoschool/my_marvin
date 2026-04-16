@@ -18,6 +18,8 @@ RUN cd /tmp && \
     /usr/bin/cs2 install --package=banana-bin && \
     /usr/bin/cs2 install --package=epiclang-bin
 
+COPY mirror.sh /usr/share/mirror.sh
+
 USER jenkins
 
 COPY --chown=jenkins:jenkins plugins.txt /usr/share/jenkins/ref/plugins.txt
