@@ -13,6 +13,10 @@ services:
       - 127.0.0.1:8080:8080
       - 127.0.0.1:50000:50000
 
+    # Used to port the docker socket to the Jenkins docker container
+    privileged: true
+
     volumes:
       - ./my_marvin.yml:/var/jenkins_home/my_marvin.yml:ro
       - ./bonus.groovy:/var/jenkins_home/job_dsl.groovy:ro
+      - /var/run/docker.sock:/var/run/docker.sock

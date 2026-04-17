@@ -53,3 +53,36 @@ job('Tools/SEED') {
         ''')
     }
 }
+
+job('Tools/SEED-DOCKER') {
+    displayName('SEED-DOCKER')
+    parameters {
+        stringParam('GITHUB_NAME', '', 'GitHub repository owner/repo_name (e.g.: "EpitechIT31000/chocolatine")')
+        stringParam('DISPLAY_NAME', '', 'Display name for the job')
+        stringParam('IMAGE_NAME', '', 'Docker image name')
+        stringParam('DOCKER_OPTIONS', '', 'Options to be ran onto the repo')
+        stringParam('SSH_HOST', '', 'SSH Host to deploy to')
+        stringParam('PRIVATE_SSH_KEY', '', 'Base64 encoded SSH key')
+    }
+    steps {
+        dsl('''
+            job("$DISPLAY_NAME") {
+                wrappers {
+                    preBuildCleanup {
+                        deleteDirectories()
+                        cleanupParameter('CLEANUP')
+                    }
+                }
+                scm {
+                    github("$GITHUB_NAME")
+                }
+                triggers {
+                    scm('* * * * *')
+                }
+                steps {
+                    shell("/usr/share/docker-deploy.sh \\\"$IMAGE_NAME\\\" \\\"$SSH_HOST\\\" \\\"$DOCKER_OPTIONS\\\" \\\"$PRIVATE_SSH_KEY\\\"")
+                }
+            }
+        ''')
+    }
+}

@@ -72,3 +72,4 @@ security:
   scriptApproval:
     approvedScriptHashes:
       - "SHA512:6bd73a726aeef2b6834afc464c01ab67f528b5b1f14593059b248b28db43f34798e01f9ae089892ed89c3cdce3418ca2f7763091ca753e6addbcfe5f1ecce3c7"
+      - "SHA512:cdd31b24cdc9336f79b3e9afba47b66a634470ac475b42f929eb57d4f6401df5347bfee098c38c2d768949fbd0f001ce53ef4f8ea38db456429240e5d9bdc84a"

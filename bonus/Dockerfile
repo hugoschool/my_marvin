@@ -3,7 +3,7 @@ FROM jenkins/jenkins:lts-jdk21
 USER root
 
 RUN apt-get update && \
-    apt-get install -y gcc clang make build-essential libcriterion-dev wget sudo
+    apt-get install -y gcc clang make build-essential libcriterion-dev wget sudo docker.io
 
 RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | tee /etc/apt/trusted.gpg.d/llvm.asc && \
     echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/llvm.asc] https://apt.llvm.org/noble/ llvm-toolchain-noble-20 main" | tee /etc/apt/sources.list.d/llvm.list && \
@@ -19,6 +19,7 @@ RUN cd /tmp && \
     /usr/bin/cs2 install --package=epiclang-bin
 
 COPY mirror.sh /usr/share/mirror.sh
+COPY docker-deploy.sh /usr/share/docker-deploy.sh
 
 USER jenkins
 
